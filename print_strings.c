@@ -9,7 +9,7 @@
  * return: length of characters printed.
  */
 
-int print_Str(va_list list, int length)
+int print_Str(va_list list, int length)
 {
 	int i;
 	char *str = va_arg(list, char *);
