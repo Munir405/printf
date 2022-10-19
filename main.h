@@ -1,3 +1,7 @@
+
+
+
+
 #ifndef _MAIN_
 #define	_MAIN_
 
@@ -13,6 +17,7 @@
 
 typedef struct print_func
 {
+
 	char placeholder;
 	int (*f)(va_list, int);
 } func;
