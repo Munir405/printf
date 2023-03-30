@@ -1,0 +1,129 @@
+.TH _PRINTF 1 "16 October 2022" "Sylvanus & Endurance version 1.0" "User Commands"
+.hy
+.SH NAME
+.PP
+_printf - formats and prints data. Similar to
+.B "PRINTF"
+in c.
+.PP
+.SH SYNOPSIS
+#inlcude "main.h"
+.PP
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+.PP
+_printf produces output according to a
+.I format.
+.PP
+.B Format of the format String.
+.RS
+The format string is a character string that may begin or end in it's initial shift state, if any. It is composed of zero or more directives. These are:
+.br
+.B oridnary characters that are not ( % ) \- copied to the system unchanged,
+.br
+.B conversion specifications \- result in fetching zero or more subsequent arguments.
+.br
+
+.B Conversion Specifications
+are introduced using the character
+.I %
+and end with a
+.B conversion specifier.
+.PP
+The arguments must correspond properly with the conversion specifier. By default, the arguments are used in the order given an each conversion specifier asks for the next argument. It is an error if insufficiently many arguments are given.
+.RE
+.PP
+.B Conversion specifiers
+.RS
+A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+.PP
+.RS
+.B d, i
+.RS
+The int argument is converted to signed decimal notation.
+.RE
+
+.PP
+.RS i
+.B c
+.RS
+If no l is present, the
+.I int
+argument is converted into an
+.I unsigned char
+and the resulting character is written.
+.RE
+.RE
+
+.PP
+.RS i
+.B s
+.RS
+If no l modifier is present:
+.I const char *
+argument is expected to be a pointer to an array of te character is
+written. Characters from the array are written up to (but not including)
+a terminating null byte ('\\0');
+.RE
+.RE
+
+.PP
+.RS i
+.B b
+.RS
+An int argument is converted to binary.
+.RE
+.RE
+
+.PP
+.RS i
+.B S
+.RS
+.I const char *
+argument is expected to be an array of the characters is written. Non printable
+characters are written in two digit hexadecimal notation preceded by a '\\x'.
+.RE
+.RE
+
+.PP
+.RS i
+.B R
+.RS
+.I const char *
+argument is expected to be an array of characters to be written. The characters are
+printed in
+.B rot13
+encryption, upto ut not inlcuding the null byte.
+.RE
+.RE
+
+.SH EXIT STATUS
+.PP
+The program exits conventionally with a status of 0 when successful and -1 when theres an error.
+
+.SH BUGS
+The program can only correctly identify 7 format specifiers at the moment. Any other format specifier will cause unexpected behaviour.
+
+.SH AUTHORS
+.PP
+.RS
+NAME:
+.B Akubo Ojonugwa Sylvanus
+.RS i
+EMAIL:
+.B akubosilver@gmail.com
+.RE
+.RE
+
+.PP
+.RS
+NAME:
+.B Apeh Ikojo Endurance
+.RS i
+EMAIL:
+.B apehendurance133@gmail.com
+.RE
+.RE
+
+.SH COPYRIGHT
+Copyright (c) 2022
